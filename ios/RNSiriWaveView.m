@@ -97,10 +97,9 @@ RCT_CUSTOM_VIEW_PROPERTY(stopAnimation, bool, SCSiriWaveformView) {
     if (decibels < -60.0f || decibels == 0.0f) {
         return 0.0f;
     }
-    
-    return powf((powf(10.0f, 0.05f * decibels) - powf(10.0f, 0.05f * -60.0f)) * (1.0f / (1.0f - powf(10.0f, 0.05f * -60.0f))), 1.0f / 2.0f);
-}
 
+    return decibels;
+}
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString {
     NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
